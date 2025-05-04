@@ -53,3 +53,17 @@ L'accuratezza è una misura di quanto il modello è preciso nel classificare i d
 In questo caso, l'accuratezza è del 93.33%, il che significa che il modello ha classificato correttamente il 93.33% dei campioni del dataset di test.
 """
 
+X_combinate = np.vstack((X_train_std, X_test_std)) # unisce il dataset di addestramento e di test
+y_combinate = np.hstack((y_train, y_test)) # unisce le etichette del dataset di addestramento e di test
+
+from plot_decision_region import plot_decision_region
+
+plt = plot_decision_region(X_combinate, y_combinate, classifier=ppn, test_idx=range(105, 150))
+plt.xlabel('petal length [standardized]')
+plt.ylabel('petal width [standardized]')
+plt.legend(loc='upper left')
+plt.tight_layout()
+plt.savefig('./ppn.png', dpi=300)
+plt.show()
+
+
