@@ -17,9 +17,8 @@ def plot_decision_region(X, y, classifier, test_idx=None, resolution=0.02):
     Z = classifier.predict(np.array([xx1.ravel(), xx2.ravel()]).T)
     Z = Z.reshape(xx1.shape)
     plt.contourf(xx1, xx2, Z, alpha=0.3, cmap=cmap)
-    plt.set_xlim(xx1.min(), xx1.max())
-    plt.set_ylim(xx2.min(), xx2.max())
-
+    plt.xlim(xx1.min(), xx1.max())
+    plt.ylim(xx2.min(), xx2.max())
    
     for idx, cl in enumerate(np.unique(y)):
        plt.scatter(x=X[y == cl, 0],
@@ -32,8 +31,8 @@ def plot_decision_region(X, y, classifier, test_idx=None, resolution=0.02):
 
     if test_idx:
         X_test, y_test = X[test_idx, :], y[test_idx]
-        plt.scatter(X_test[:, 0], X_test[:, 1], c='', edgecolor='black', alpha=1.0,
+        plt.scatter(X_test[:, 0], X_test[:, 1], edgecolor='black', alpha=1.0,
                     linewidth=1, marker='o', s=100, label='test set')
 
-
+    return plt
         
