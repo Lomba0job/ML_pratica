@@ -53,7 +53,7 @@ plt.xlabel('petal length [standardized]')
 plt.ylabel('petal width [standardized]')
 plt.legend(loc='upper left')
 plt.tight_layout()
-plt.savefig('./ppn.png', dpi=300)
+plt.savefig('./svm.png', dpi=300)
 plt.show()
 
 
